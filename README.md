@@ -12,3 +12,8 @@ npm i @hookform/resolvers
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
+npm install lucide-react
+npm install react-hot-toast
+npm install @tailwindcss/forms
+npm install date-fns
+
