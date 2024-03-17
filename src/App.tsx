@@ -2,7 +2,7 @@ import './index.css'
 // import Container from 'react-bootstrap/Container'
 import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements, useLoaderData, useParams } from 'react-router-dom'
 // import Home from './Home'
-// import Header from './components/Header'
+import Header from './components/Header'
 // import Footer from './components/Footer'
 // import Names from './components/Names/Names'
 // import NameDetails from './components/Names/NameDetails'
@@ -15,11 +15,23 @@ import axios from 'axios'
 import localforage from 'localforage'
 // import DefaultLayout from './DefaultLayout'
 import { redirect } from 'react-router-dom/dist'
+import { Register } from './uiLayer/pages/Register'
 
 const NotFound = () => <div>Not foud</div>
 
 // const namesToCreateObj = ['Diogo', 'Karla', 'Lucas', 'Pablo', 'Fabrício']
 // const names = namesToCreateObj.map(name => ({ name, nameId: crypto.randomUUID() }))
+
+const DefaultLayout = () => {
+  return (
+    <>
+      <h1>Olá, mundo</h1>
+      <Outlet />
+      
+      <footer>Acabou</footer>
+    </>
+  )
+}
 
 // const NamesLayout = () => {
 //   return (
@@ -95,10 +107,11 @@ function AaaiNovinhaSentaAPampa() {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    // <Route path="/" element={<DefaultLayout />} >
-    <Route path="/" element={<AaaiNovinhaSentaAPampa />} >
+    <Route path="/" element={<DefaultLayout />} >
+    {/* <Route path="/" element={<AaaiNovinhaSentaAPampa />} > */}
       {/* <Route index element={<Home title="Home" />} /> */}
 
+      <Route path="register" element={<Register />} />
       {/* <Route path="about" element={<About />} /> */}
 
       {/* <Route path="names" element={<NamesLayout />}> */}
