@@ -17,7 +17,7 @@ export class Result<T> {
     if (!this.#isSuccess) {
       throw this.#error
     }
-    return this.#value
+    return this.#value!
   }
 
   get error() {

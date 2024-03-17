@@ -3,9 +3,13 @@ import { ICepService } from '../../interfaces/services/cep'
 import { Result } from '../../result'
 
 export class CepRepository implements ICepRepository {
-  constructor(private readonly cepService: ICepService) {}
+  constructor(private readonly cepService: ICepService) { }
 
   async find(cep: string) {
+    if (!cep || !/\D/.test(cep)) {
+      return new Result(false, undefined, new Error('CEP inválido'))
+    }
+
     try {
       const res = await this.cepService.find(cep)
       return new Result(true, {
